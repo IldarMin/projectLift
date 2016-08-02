@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Test Project 2</title>
+    <link rel='stylesheet' href='testharness.js/testharness.css'>
+    <script src='testharness.js/testharness.js'></script>
+    <script src='testharness.js/testharnessreport.js'></script>
+    <style media="screen">
+      ul li{
+        margin-top: 90px;
+        margin-bottom: 90px;
+      }
+      #block{
+        width: 100px;
+        height: 150px;
+        background-color: green;
+        position: absolute;
+        margin-left: 150px;
+      }
+      .floor1{
+        bottom: -60px;
+      }
+      .floor2{
+        bottom: 66px;
+      }
+      .floor3{
+        bottom: 166px;
+      }
+      .floor4{
+        bottom: 266px;
+      }
+      .floor5{
+        bottom: 366px;
+      }
+    </style>
+    <body>
+      <div style="position: relative;">
+        <ul id="parent">
+          <li id="floor5">5 floor</li>
+          <li id="floor4">4 floor</li>
+          <li id="floor3">3 floor</li>
+          <li id="floor2">2 floor</li>
+          <li id="floor1">1 floor</li>
+        </ul>
+        <div id="block" class="floor1">
+
+        </div>
+      </div>
+    </body>
+  <script type="text/javascript">
+    var li2 = document.getElementById('floor2'),
+        li3 = document.getElementById('floor3'),
+        li4 = document.getElementById('floor4'),
+        li5 = document.getElementById('floor5'),
+        li1 = document.getElementById('floor1'),
+        div = document.getElementById('block');
+
+    li1.addEventListener('click', function(e) {
+      div.className = 'floor1';
+    });
+    li2.addEventListener('click', function(e) {
+      div.className = 'floor2';
+    });
+    li3.addEventListener('click', function(e) {
+      div.className = 'floor3';
+    });
+    li4.addEventListener('click', function(e) {
+      div.className = 'floor4';
+    });
+    li5.addEventListener('click', function(e) {
+      div.className = 'floor5';
+    });
+
+  </script>
+
+
+
+  <script src="script/testapp.js"></script>
+</html>
