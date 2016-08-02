@@ -11,31 +11,43 @@
         margin-top: 90px;
         margin-bottom: 90px;
       }
-      #block{
+      #block1{
         width: 100px;
         height: 150px;
         background-color: green;
         position: absolute;
         margin-left: 150px;
       }
+      #block2{
+        width: 100px;
+        height: 150px;
+        background-color: red;
+        position: absolute;
+        margin-left: 150px;
+      }
+      .scorpio_btn{
+        width: 120px;
+        margin: 0 auto;
+        margin-top: 130px;
+      }
       .floor1{
-        bottom: -60px;
+        bottom: 0px;
       }
       .floor2{
-        bottom: 66px;
+        bottom: 100px;
       }
       .floor3{
-        bottom: 166px;
+        bottom: 200px;
       }
       .floor4{
-        bottom: 266px;
+        bottom: 300px;
       }
       .floor5{
-        bottom: 366px;
+        bottom: 400px;
       }
     </style>
     <body>
-      <div style="position: relative;">
+      <div style="position: relative; width: 40%; display: inline-block;">
         <ul id="parent">
           <li id="floor5">5 floor</li>
           <li id="floor4">4 floor</li>
@@ -43,9 +55,24 @@
           <li id="floor2">2 floor</li>
           <li id="floor1">1 floor</li>
         </ul>
-        <div id="block" class="floor1">
+        <div id="block1" class="floor1">
 
         </div>
+      </div>
+      <div style="position: relative; width: 40%; display: inline-block;">
+        <ul id="parent">
+          <li id="flooor5">5 floor</li>
+          <li id="flooor4">4 floor</li>
+          <li id="flooor3">3 floor</li>
+          <li id="flooor2">2 floor</li>
+          <li id="flooor1">1 floor</li>
+        </ul>
+        <div id="block2" class="floor1">
+
+        </div>
+      </div>
+      <div class="scorpio_btn">
+        <button id="main_button" type="button" name="button">Get Over Here</button>
       </div>
     </body>
   <script type="text/javascript">
@@ -54,7 +81,14 @@
         li4 = document.getElementById('floor4'),
         li5 = document.getElementById('floor5'),
         li1 = document.getElementById('floor1'),
-        div = document.getElementById('block');
+        lift2 = document.getElementById('flooor2'),
+        lift3 = document.getElementById('flooor3'),
+        lift4 = document.getElementById('flooor4'),
+        lift5 = document.getElementById('flooor5'),
+        lift1 = document.getElementById('flooor1'),
+        div = document.getElementById('block1'),
+        div2 = document.getElementById('block2'),
+        btn = document.getElementById('main_button');
 
     li1.addEventListener('click', function(e) {
       div.className = 'floor1';
@@ -71,6 +105,40 @@
     li5.addEventListener('click', function(e) {
       div.className = 'floor5';
     });
+
+    lift2.addEventListener('click', function() {
+      div2.className = 'floor2'
+    });
+    lift3.addEventListener('click', function() {
+      div2.className = 'floor3'
+    });
+    lift4.addEventListener('click', function() {
+      div2.className = 'floor4'
+    });
+    lift5.addEventListener('click', function() {
+      div2.className = 'floor5'
+    });
+    lift1.addEventListener('click', function() {
+      div2.className = 'floor1'
+    });
+
+    btn.addEventListener('click', () => {
+      var elevator1 = getlastNumber(div.className),
+          elevator2 = getlastNumber(div2.className);
+      // console.log(elevator1, elevator2);
+      if (elevator1 > elevator2) {
+        div2.className = 'floor1';
+      }else{
+        div.className = 'floor1';
+      }
+    })
+
+
+    // (_ => {
+    //   console.log("123");
+    //   console.log("321");
+    //
+    // })();
 
   </script>
 
