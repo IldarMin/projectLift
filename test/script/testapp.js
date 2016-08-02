@@ -35,7 +35,8 @@ var li2 = document.getElementById('floor2'),
     lift1 = document.getElementById('flooor1'),
     div = document.getElementById('block1'),
     div2 = document.getElementById('block2'),
-    btn = document.getElementById('main_button');
+    btn = document.getElementById('main_button'),
+    option = document.getElementById("mySelect");
 
 
     async1.next = async1.step_func(_ => {
@@ -149,14 +150,19 @@ var li2 = document.getElementById('floor2'),
       async11.next = async11.step_func(function(){
         // btn.addEventListener('click', () => {
         //   var elevator1 = getlastNumber(div.className),
-        //       elevator2 = getlastNumber(div2.className);
-        //   // console.log(elevator1, elevator2);
-        //   if (elevator1 > elevator2) {
-        //     div2.className = 'floor1';
+        //       elevator2 = getlastNumber(div2.className),
+        //       select = document.getElementById("mySelect"),
+        //       myFloor = select.options[select.selectedIndex].value,
+        //       myfloorIng = getlastNumber(myFloor);
+        //
+        //   console.log(possitiveIng(myfloorIng - elevator1));
+        //
+        //   if (possitiveIng(myfloorIng - elevator1) > possitiveIng(myfloorIng - elevator2)) {
+        //     div2.className = 'floor'+myfloorIng;
         //   }else{
-        //     div.className = 'floor1';
+        //     div.className = 'floor'+myfloorIng;
         //   }
-        // })
+        // });
         btn.dispatchEvent(new Event('click'));
         console.log('async 11 done');
         async11.done();
@@ -169,5 +175,8 @@ var li2 = document.getElementById('floor2'),
       });
 
 function getlastNumber(el) {
-  return +el.replace("floor", "");;
+  return +el.replace("floor", "");
+};
+function possitiveIng(el) {
+  return Math.abs(el)
 };

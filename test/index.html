@@ -71,6 +71,18 @@
 
         </div>
       </div>
+      <br>
+      <br>
+      <div class="your_floor">
+        Choose your location:
+        <select id="mySelect">
+          <option value="floor5">5 floor</option>
+          <option value="floor4">4 floor</option>
+          <option value="floor3">3 floor</option>
+          <option value="floor2">2 floor</option>
+          <option value="floor1" selected="">1 floor</option>
+        </select>
+      </div>
       <div class="scorpio_btn">
         <button id="main_button" type="button" name="button">Get Over Here</button>
       </div>
@@ -124,14 +136,20 @@
 
     btn.addEventListener('click', () => {
       var elevator1 = getlastNumber(div.className),
-          elevator2 = getlastNumber(div2.className);
-      // console.log(elevator1, elevator2);
-      if (elevator1 > elevator2) {
-        div2.className = 'floor1';
+          elevator2 = getlastNumber(div2.className),
+          select = document.getElementById("mySelect"),
+          myFloor = select.options[select.selectedIndex].value,
+          myfloorIng = getlastNumber(myFloor);
+
+      console.log(possitiveIng(myfloorIng - elevator1));
+
+      if (possitiveIng(myfloorIng - elevator1) > possitiveIng(myfloorIng - elevator2)) {
+        div2.className = 'floor'+myfloorIng;
       }else{
-        div.className = 'floor1';
+        div.className = 'floor'+myfloorIng;
       }
-    })
+    });
+
 
 
     // (_ => {
